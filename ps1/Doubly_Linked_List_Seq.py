@@ -36,40 +36,74 @@ class Doubly_Linked_List_Seq:
         node.item = x
 
     def insert_first(self, x):
-        ###########################
-        # Part (a): Implement me! #
-        ###########################
-        pass
+        node = Doubly_Linked_List_Node(x)
+        node.next = self.head
+        if self.head is None:
+            self.tail = node
+        else:
+            self.head.prev = node
+        self.head = node
 
     def insert_last(self, x):
-        ###########################
-        # Part (a): Implement me! #
-        ###########################
-        pass
+        node = Doubly_Linked_List_Node(x)
+        node.prev = self.tail
+        if self.tail is None:
+            self.head = node
+        else:
+            self.tail.next = node
+        self.tail = node
 
     def delete_first(self):
-        x = None
-        ###########################
-        # Part (a): Implement me! #
-        ###########################
-        return x
+        if self.head is None:
+            raise IndexError('delete from empty list')
+        node = self.head
+        self.head = node.next
+        if self.head is None:
+            self.tail = None
+        else:
+            self.head.prev = None
+        node.next = None
+        return node.item
 
     def delete_last(self):
-        x = None
-        ###########################
-        # Part (a): Implement me! #
-        ###########################
-        return x
+        if self.tail is None:
+            raise IndexError('delete from empty list')
+        node = self.tail
+        self.tail = node.prev
+        if self.tail is None:
+            self.head = None
+        else:
+            self.tail.next = None
+        node.prev = None
+        return node.item
 
     def remove(self, x1, x2):
-        L2 = Doubly_Linked_List_Seq()
-        ###########################
-        # Part (b): Implement me! # 
-        ###########################
-        return L2
+        before, after = x1.prev, x2.next
+        if before is None:
+            self.head = after
+        else:
+            before.next = after
+        if after is None:
+            self.tail = before
+        else:
+            after.prev = before
+        x1.prev = None
+        x2.next = None
+        result = Doubly_Linked_List_Seq()
+        result.head, result.tail = x1, x2
+        return result
 
     def splice(self, x, L2):
-        ###########################
-        # Part (c): Implement me! # 
-        ###########################
-        pass
+        if L2 is self:
+            raise ValueError('Cannot splice a list into itself')
+        if L2.head is None:
+            return
+        after = x.next
+        x.next = L2.head
+        L2.head.prev = x
+        L2.tail.next = after
+        if after is None:
+            self.tail = L2.tail
+        else:
+            after.prev = L2.tail
+        L2.head = L2.tail = None
