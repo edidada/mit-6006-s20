@@ -1,19 +1,43 @@
 INF = 99999     # distance magnitudes will not be larger than this number
 
 def johnson(n, S):
-    '''
-    Input:  n | Number of vertices in the graph
-            S | Tuple of triples (u, v, w) representing edge (u, v) of weight w
-    Output: D | Tuple of tuples where D[u][v] is the distance from u to v
-              |   or INF if v is not reachable from u
-              |   or None if the input graph contains a negative-weight cycle
-    '''
-    D = [[INF for _ in range(n)] for _ in range(n)]
-    ##################
-    # YOUR CODE HERE #
-    ##################
-    D = tuple(tuple(row) for row in D)
-    return D
+    """All-pairs shortest paths using Bellman-Ford potentials and Dijkstra."""
+    from heapq import heappop, heappush
+    adjacency = [[] for _ in range(n)]
+    for u, v, weight in S:
+        if not (0 <= u < n and 0 <= v < n):
+            raise ValueError('Edge endpoint outside graph')
+        adjacency[u].append((v, weight))
+    # A zero-edge super-source is equivalent to initializing every potential to zero.
+    potential = [0] * n
+    for iteration in range(n):
+        changed = False
+        for u, v, weight in S:
+            candidate = potential[u] + weight
+            if candidate < potential[v]:
+                potential[v] = candidate
+                changed = True
+        if not changed:
+            break
+        if iteration == n - 1:
+            return None
+    result = []
+    for source in range(n):
+        distance = [float('inf')] * n
+        distance[source] = 0
+        frontier = [(0, source)]
+        while frontier:
+            cost, u = heappop(frontier)
+            if cost != distance[u]:
+                continue
+            for v, weight in adjacency[u]:
+                candidate = cost + weight + potential[u] - potential[v]
+                if candidate < distance[v]:
+                    distance[v] = candidate
+                    heappush(frontier, (candidate, v))
+        result.append(tuple(INF if value == float('inf') else value - potential[source] + potential[target]
+                            for target, value in enumerate(distance)))
+    return tuple(result)
 
 ####################################
 # USE BUT DO NOT MODIFY CODE BELOW #
