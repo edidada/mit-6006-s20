@@ -1,0 +1,61 @@
+{
+  "publication_kind": "official-archive-import",
+  "imported_at": "2026-11-02",
+  "evidence": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/",
+  "archives": [
+    {
+      "directory": "ps0",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/a100caad66c721bdbec9365c4a9d51e3_MIT6_006S20_ps0-template.zip",
+      "sha256": "2380cf436a1face46e7d831d3dbd8f067c804b5d16f2b9153e39fdcccf89edf7",
+      "bytes": 10723
+    },
+    {
+      "directory": "ps1",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/97dc64778477b4f9522a77fa7df13ac6_MIT6_006S20_ps1-template.zip",
+      "sha256": "0910b080475558dfe1a8d6924607266ff884bd199fa5191b78c8a7537ac318db",
+      "bytes": 11601
+    },
+    {
+      "directory": "ps2",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/50f2e779676fcca76901549a9d37a1ea_MIT6_006S20_ps2-template.zip",
+      "sha256": "b1d83cf94bc96fe800c826ca0a554bde826c166fe0025b575665b9d8ae3de1ef",
+      "bytes": 21477
+    },
+    {
+      "directory": "ps3",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/cbac55d8c2eccf892a6bde90e785393a_MIT6_006S20_ps3-template.zip",
+      "sha256": "0fe8574e18b5a2d504237dec94b6eb70d10696cfbe506fc395943ae7185a761c",
+      "bytes": 10720
+    },
+    {
+      "directory": "ps4",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/f17f5875e08b3c968496d54e79b229c3_MIT6_006S20_ps4-template.zip",
+      "sha256": "4ff219e60016eabe2708adc53c942fb74b3651a6c265085f7af3c55084249f35",
+      "bytes": 15009
+    },
+    {
+      "directory": "ps5",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/205af4c0fa89edb14def915ecd59a382_MIT6_006S20_ps5-template.zip",
+      "sha256": "33a1a2d33a2216014a389c92e6c4ffc84fadd7a347ca20bd51445d19effedfe0",
+      "bytes": 11294
+    },
+    {
+      "directory": "ps6",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/347724142015b7f29d89ef586ef85654_MIT6_006S20_ps6-template.zip",
+      "sha256": "c94e077d9d46e900b485e1608ec7ca99a51d99340794baf09b936f4c2e78dcce",
+      "bytes": 11891
+    },
+    {
+      "directory": "ps7",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/d011a036b639af69793a3611d424163d_MIT6_006S20_ps7-template.zip",
+      "sha256": "2e605d82950dde5c3e56b2a9a77c4b19dd13ebaf01f2d5b021d101a70668f4b9",
+      "bytes": 16463
+    },
+    {
+      "directory": "ps8",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/9c25a40208e1f4db7ce22cce6c72eead_MIT6_006S20_ps8-template.zip",
+      "sha256": "5e9b098632cf5615cb8fd7df9917cf5c81dd50ee566eb98770f31f8714a963dd",
+      "bytes": 10567
+    }
+  ]
+}
