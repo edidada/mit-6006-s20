@@ -1,14 +1,28 @@
+from collections import deque
+
+
 def solve_tilt(B, t):
-    '''
-    Input:  B | Starting board configuration
-            t | Tuple t = (x, y) representing the target square
-    Output: M | List of moves that solves B (or None if B not solvable)
-    '''
-    M = []
-    ##################
-    # YOUR CODE HERE #
-    ##################
-    return M
+    """Breadth-first search over immutable complete board configurations."""
+    start = tuple(tuple(row) for row in B)
+    x, y = t
+    if not (0 <= y < len(start) and 0 <= x < len(start[y])):
+        raise ValueError('Target is outside the board')
+    frontier = deque([start])
+    parent = {start: None}
+    while frontier:
+        board = frontier.popleft()
+        if board[y][x] == 'o':
+            actions = []
+            while parent[board] is not None:
+                board, action = parent[board]
+                actions.append(action)
+            return actions[::-1]
+        for direction in ['up', 'down', 'left', 'right']:
+            successor = move(board, direction)
+            if successor not in parent:
+                parent[successor] = (board, direction)
+                frontier.append(successor)
+    return None
 
 ####################################
 # USE BUT DO NOT MODIFY CODE BELOW #
